@@ -4,7 +4,6 @@ go 1.24.0
 
 require (
 	github.com/antonfisher/nested-logrus-formatter v1.3.1
-	github.com/joho/godotenv v1.5.1
 	github.com/sirupsen/logrus v1.9.3
 )
 
