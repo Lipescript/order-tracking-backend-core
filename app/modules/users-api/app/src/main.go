@@ -1,13 +1,12 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/http"
 	"users-api/app/src/config"
 	"users-api/app/src/controller"
 	"users-api/app/src/repository"
 	"users-api/app/src/service"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -19,7 +18,15 @@ func main() {
 	// Initialize the application
 	app := config.NewInitialization(userRepo, *userService, *userController)
 
+	router := gin.Default()
+
+	// Register routes
+	api := router.Group("/api")
+	{
+		api.GET("/users")
+		api.POST("/users")
+	}
+
 	// Start the server
-	fmt.Println("Server starting on :8090")
-	log.Fatal(http.ListenAndServe(":8090", nil))
+	router.Run(":8080")
 }
