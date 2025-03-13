@@ -11,5 +11,5 @@ func NewUserRepository() UserRepository {
 }
 
 type UserRepository interface {
-	GetUserByID(id int) (string, error) // Exemplo de método
+	GetUserByID(id int) (string, error)
 }

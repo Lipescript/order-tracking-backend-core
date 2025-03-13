@@ -2,10 +2,12 @@ package config
 
 import (
 	"os"
-	"users-api/app/src/constants"
 
 	nested "github.com/antonfisher/nested-logrus-formatter"
 	log "github.com/sirupsen/logrus"
+
+	"users-api/app/src/constants"
+
 )
 
 func InitLog() {
@@ -15,7 +17,6 @@ func InitLog() {
 	log.SetFormatter(&nested.Formatter{
 		HideKeys:    true,
 		FieldsOrder: []string{"component", "category"},
-		//    TimestampFormat: "2006-01-02T15:04:05",
 		TimestampFormat: constants.LoggerTimestampFormat,
 		ShowFullLevel:   true,
 		CallerFirst:     true,
