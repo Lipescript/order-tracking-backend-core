@@ -1,0 +1,27 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "mongodb+mongoexpress init files",
+  "keywords": [],
+  "homepage": "https://github.com/Lipescript/order-tracking-backend-core#readme",
+  "bugs": {
+    "url": "https://github.com/Lipescript/order-tracking-backend-core/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lipescript/order-tracking-backend-core.git"
+  },
+  "license": "ISC",
+  "author": "Felipe Marques",
+  "type": "commonjs",
+  "main": "local_db_init.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "basic-auth": "^2.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongodb": "^6.14.2"
+  }
+}

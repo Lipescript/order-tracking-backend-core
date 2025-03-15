@@ -1,0 +1,9 @@
+{
+    "mdb.presetConnections": [
+        {
+            "name": "Preset Connection",
+            "connectionString": "mongodb://root:senhaSegura123@mongo:27017/"
+        }
+    ],
+    "files.autoSave": "onFocusChange"
+}

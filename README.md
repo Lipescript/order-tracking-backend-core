@@ -1,4 +1,4 @@
-# order-tracking-backend-core
+# order-delivery-backend-core
 
 adicione as dependencias internas na pasta raiz do projeto
 

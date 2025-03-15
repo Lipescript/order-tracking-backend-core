@@ -1,3 +1,3 @@
-module order-tracking-orchestror
+module order-delivery-orchestror
 
 go 1.24.0

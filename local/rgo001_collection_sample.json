@@ -1,0 +1,18 @@
+{
+    "_id": "ObjectId()",
+    "user_id": "UUID-123",
+    "delivery_id": "HASH-UNICO-ABC",
+    "begin_location": {
+        "type": "Point",
+        "coordinates": [-73.856077, 40.848447]
+    },
+    "final_location": {
+        "type": "Point",
+        "coordinates": [-78.859077, 20.848711]
+    },
+    "delivery_status": "em_transito",
+    "message_timestamp": "ISODate(\"2024-10-15T10:00:00Z\")",
+    "expiration_time": "ISODate(\"2024-10-16T10:00:00Z\")",
+    "integrity_hash": "sha256-abc123..."
+}
+
