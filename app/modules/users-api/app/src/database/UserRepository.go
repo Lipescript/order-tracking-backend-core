@@ -7,20 +7,19 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 
 	"users-api/app/src/config"
-	"users-api/app/src/domain"
-
 )
 
 type MongodbRepo struct {
 	MongodbClient *mongo.Client
 }
 
-func CreateNewMongoDbRepo(a *config.MongoConfig) *MongodbRepo {
+func CreateNewMongoDbRepo() *MongodbRepo {
 	return &MongodbRepo{
-		MongodbClient: a.Mongo,
+		MongodbClient: config.NewMongoConfig().Mongo,
 	}
 }
 
+/*
 func (mr *MongodbRepo) AddUser(ctx context.Context, b domain.User) error {
 	booksCollection := mr.MongodbClient.Database("library-db").Collection("books")
 	insertResult, err := booksCollection.InsertOne(ctx, b)
@@ -28,6 +27,12 @@ func (mr *MongodbRepo) AddUser(ctx context.Context, b domain.User) error {
 		return err
 	}
 	fmt.Println(" --------------- Inserted a single User: ", insertResult.InsertedID)
+	return nil
+}
+*/
+
+func (mr *MongodbRepo) AddUser() error {
+	fmt.Println(" --------------- Inserted a single User: ")
 	return nil
 }
 

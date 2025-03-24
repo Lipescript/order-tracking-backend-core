@@ -8,3 +8,7 @@ type MongoConfig struct {
 	Mongo        *mongo.Client
 	InProduction bool
 }
+
+func NewMongoConfig() *MongoConfig {
+	return &MongoConfig{}
+}

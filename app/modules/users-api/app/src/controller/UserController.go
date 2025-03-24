@@ -17,12 +17,15 @@ func NewUserController(userSvc service.UserService) *UserController {
 	}
 }
 
-func getUsers(c *gin.Context) {
+func getUsers(us *service.UserService, context *gin.Context) {
 	// Implement GET /users route logic here
-	c.JSON(200, gin.H{"message": "GET /users route"})
+
+	us.TestRepository()
+
+	context.JSON(200, gin.H{"message": "GET /users route"})
 }
 
-func createUser(c *gin.Context) {
+func createUser(context *gin.Context) {
 	// Implement POST /users route logic here
-	c.JSON(201, gin.H{"message": "POST /users route"})
+	context.JSON(201, gin.H{"message": "POST /users route"})
 }

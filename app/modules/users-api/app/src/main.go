@@ -12,6 +12,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 
+	"users-api/app/src/config"
 	"users-api/app/src/constants"
 	"users-api/app/src/database"
 )
@@ -21,10 +22,10 @@ func main() {
 	initServerAndRoutes()
 	initDatabaseConection()
 
-	Mongodb_Repo := database.CreateNewMongoDbRepo(&app)
+	Mongodb_Repo := database.CreateNewMongoDbRepo(&config.MongoConfig{})
 
 	// set up handlers
-	repo := database.NewRepo(&app, Mongodb_Repo)
+	repo := database.NewRepo(&config.MongoConfig{}, Mongodb_Repo)
 	database.NewHandlers(repo)
 
 	// Start the server
