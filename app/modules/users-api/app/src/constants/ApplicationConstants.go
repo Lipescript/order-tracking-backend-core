@@ -4,7 +4,7 @@ type ResponseStatus int
 type Headers int
 type General int
 
-// Constant Api
+// logger
 const (
 	LoggerTimestampFormat                = "2006-01-02T15:04:05"
 	LoggerLevelDebug                     = "DEBUG"
@@ -14,6 +14,13 @@ const (
 	UnknownError
 	InvalidRequest
 	Unauthorized
+)
+
+// api
+const (
+	DefaultLocalPort = ":8090"
+	BaseAPI          = "/backend/rgo/usersapi/v1/"
+	DatabaseURI      = "mongodb://root:1234@localhost:27017"
 )
 
 func (r ResponseStatus) GetResponseStatus() string {

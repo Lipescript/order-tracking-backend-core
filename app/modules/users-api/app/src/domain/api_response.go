@@ -1,4 +1,4 @@
-package dto
+package domain
 
 type ApiResponse[T any] struct {
 	ResponseKey     string `json:"response_key"`
