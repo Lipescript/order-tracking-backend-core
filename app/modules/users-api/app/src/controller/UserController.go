@@ -2,30 +2,35 @@
 package controller
 
 import (
+	"time"
+
 	"github.com/gin-gonic/gin"
 
-	"users-api/app/src/service"
+	"users-api/app/src/constants"
+	"users-api/app/src/database"
+	"users-api/app/src/domain"
 )
 
 type UserController struct {
-	userSvc service.UserService
+	userRepo database.MongodbRepo
 }
 
-func NewUserController(userSvc service.UserService) *UserController {
+func NewUserController(userRepo database.MongodbRepo) *UserController {
 	return &UserController{
-		userSvc: userSvc,
+		userRepo: userRepo,
 	}
 }
 
-func getUsers(us *service.UserService, context *gin.Context) {
-	// Implement GET /users route logic here
+func (uc *UserController) CreateUserDelivery(c *gin.Context) {
+	delivery := domain.NewUserDelivery("123", "456", "delivered", time.Now())
 
-	us.TestRepository()
+	database.InsertData(uc.userRepo.MongodbClient, constants.DatabaseName, constants.DatabaseTrackingCollection, delivery)
 
-	context.JSON(200, gin.H{"message": "GET /users route"})
+	response := domain.UserCreatedResponse(delivery)
+	c.JSON(201, gin.H{"response": response})
 }
 
-func createUser(context *gin.Context) {
+func (uc *UserController) GetUserDeliveries(c *gin.Context) {
 	// Implement POST /users route logic here
-	context.JSON(201, gin.H{"message": "POST /users route"})
+	c.JSON(201, gin.H{"message": "GET /users route"})
 }

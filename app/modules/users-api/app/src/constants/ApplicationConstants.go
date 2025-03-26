@@ -16,11 +16,13 @@ const (
 	Unauthorized
 )
 
-// api
+// api & database
 const (
-	DefaultLocalPort = ":8090"
-	BaseAPI          = "/backend/rgo/usersapi/v1/"
-	DatabaseURI      = "mongodb://root:1234@localhost:27017"
+	DefaultLocalPort           = ":8090"
+	BaseAPI                    = "/backend/rgo/usersapi/v1/"
+	DatabaseURI                = "mongodb://root:1234@localhost:27017"
+	DatabaseName               = "rgo001_users_active_delivery"
+	DatabaseTrackingCollection = "user_deliveries"
 )
 
 func (r ResponseStatus) GetResponseStatus() string {

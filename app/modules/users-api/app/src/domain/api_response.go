@@ -5,3 +5,12 @@ type ApiResponse[T any] struct {
 	ResponseMessage string `json:"response_message"`
 	Data            T      `json:"data"`
 }
+
+// POST /users successfully created users.
+func UserCreatedResponse[T any](data T) ApiResponse[T] {
+	return ApiResponse[T]{
+		ResponseKey:     "USER_CREATED",
+		ResponseMessage: "User successfully created in the database",
+		Data:            data,
+	}
+}
