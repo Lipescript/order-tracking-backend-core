@@ -15,7 +15,7 @@ type MongodbRepo struct {
 
 func CreateNewMongoDbRepo(mongoconfig *config.MongoConfig) *MongodbRepo {
 
-	client, _ := config.InitDatabaseConection()
+	client, _ := config.InitMongoConnection()
 	mongoconfig.Mongo = client
 
 	return &MongodbRepo{
@@ -23,6 +23,7 @@ func CreateNewMongoDbRepo(mongoconfig *config.MongoConfig) *MongodbRepo {
 	}
 }
 
+// TODO implement in order-tracking-orchestror
 func InsertData(client *mongo.Client, databaseName, collectionName string, document any) (*mongo.InsertOneResult, error) {
 	bsonDocument, err := convertToBson(document)
 	if err != nil {

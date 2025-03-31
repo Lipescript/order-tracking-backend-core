@@ -14,6 +14,8 @@ const (
 	UnknownError
 	InvalidRequest
 	Unauthorized
+	MESSAGE_SUCCESSFUL_CONNECTION_TO_DATABASE = "Connected to database: %v successfully"
+	MESSAGE_FAILED_CONNECTION_TO_DATABASE     = "Failed to connect to mongo database: %v. Disconnecting..."
 )
 
 // api & database

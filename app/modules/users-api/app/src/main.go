@@ -16,6 +16,7 @@ func main() {
 	userController := controller.NewUserController(*userRepository)
 
 	initServerAndRoutes(userController)
+
 }
 
 func initServerAndRoutes(uc *controller.UserController) {

@@ -5,10 +5,12 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 
 	"users-api/app/src/constants"
 	"users-api/app/src/database"
 	"users-api/app/src/domain"
+
 )
 
 type UserController struct {
@@ -22,7 +24,12 @@ func NewUserController(userRepo database.MongodbRepo) *UserController {
 }
 
 func (uc *UserController) CreateUserDelivery(c *gin.Context) {
-	delivery := domain.NewUserDelivery("123", "456", "delivered", time.Now())
+	/*
+            delivery_status: {
+              enum: ['pendente', 'em_transito', 'entregue', 'cancelado']
+            },
+	*/
+	delivery := domain.NewUserDelivery(uuid.New().String(), uuid.New().String(), "entregue", time.Now())
 
 	database.InsertData(uc.userRepo.MongodbClient, constants.DatabaseName, constants.DatabaseTrackingCollection, delivery)
 
